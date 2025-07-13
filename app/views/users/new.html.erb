@@ -1,17 +1,22 @@
 <h1> Looking good girl!</h1>
 
-<h2>Form_tag version</h2>
+<h2>Form_with version</h2>
 
-<%= form_tag("/users", method: "post") do %>
+<%= form_with model: @user do |form| %>
+  <div>
+     <%= form.label :username, "Your username here:" %>
+     <%= form.text_field :username, value: "yaname" %>
+  </div>
 
-  <%= label_tag(:username, "Username") %>
-  <%= text_field_tag(:username) %>
+ <div>
+    <%= form.label :email %>
+    <%= form.email_field :email, placeholder: "example@example.com" %>
+ </div>
 
-  <%= label_tag(:email, "Email") %>
-  <%= email_field_tag(:email) %>
+  <div>
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  </div>
 
-  <%= label_tag(:password, "Password") %>
-  <%= password_field_tag(:password) %>
-
-  <%= submit_tag("Submit") %>
+  <%= form.submit %>
 <% end %>
